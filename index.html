@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">ARCH<span>STUDIO</span></div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+            <a href="/admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Designing the Future</h1>
+            <p>High-end architectural design, stoneworks, and construction management.</p>
+            <a href="#portfolio" class="btn">View Our Work</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Expertise</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-cubes"></i>
+                <h3>Stoneworks</h3>
+                <p>Premium stone crafting and masonry for timeless structures.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-drafting-compass"></i>
+                <h3>Plan Drawing</h3>
+                <p>Precise and innovative architectural blueprints.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-building"></i>
+                <h3>Architectural Design</h3>
+                <p>Modern and sustainable building designs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hard-hat"></i>
+                <h3>Construction Management</h3>
+                <p>Overseeing projects from conception to completion.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <h2>Selected Works</h2>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Residential">Residential</button>
+            <button class="filter-btn" data-filter="Commercial">Commercial</button>
+        </div>
+        <div class="portfolio-grid" id="portfolio-grid">
+            <!-- Projects will be injected here dynamically -->
+            <div class="loading">Loading projects...</div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <h2>Our Team</h2>
+        <div class="team-grid" id="team-grid">
+            <!-- Team members will be injected here dynamically -->
+            <div class="loading">Loading team...</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <form id="contact-form" class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ArchStudio. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>
