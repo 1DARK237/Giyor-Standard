@@ -15,10 +15,11 @@ const firebaseConfig = {
   appId: "YOUR_APP_ID"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const storage = getStorage(app);
-const auth = getAuth(app);
+// Check if the user has replaced the placeholder credentials
+export const isFirebaseConfigured = firebaseConfig.projectId !== "YOUR_PROJECT_ID";
 
-export { app, db, storage, auth };
+// Initialize Firebase
+export const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const storage = getStorage(app);
+export const auth = getAuth(app);
