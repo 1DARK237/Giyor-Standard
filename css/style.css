@@ -672,40 +672,64 @@ footer .social-links a:hover {
     /* hide nav in header on mobile */
     header nav {
         position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
+        top: 3rem;
+        right: -400px;
+        height: auto;
         width: 280px;
-        max-width: 80vw;
-        background: var(--primary);
+        max-width: calc(100vw - 2rem);
+        background: rgba(63, 81, 181, 0.95);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
         flex-direction: column;
         justify-content: flex-start;
-        padding-top: 6rem;
-        gap: 1rem;
-        border-radius: 0;
-        padding: 6rem 1rem 1rem 1rem;
-        transition: right 0.3s ease;
-        z-index: 900;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+        gap: 0.5rem;
+        border-radius: 12px;
+        padding: 1rem;
+        transition: right 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        z-index: 950;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         overflow-y: auto;
+        max-height: 70vh;
     }
 
     header nav.open {
-        right: 0;
+        right: 1rem;
+    }
+
+    /* backdrop overlay for mobile */
+    .nav-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        z-index: 899;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .nav-backdrop.active {
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 1;
+        pointer-events: all;
     }
 
     header nav a {
         display: block;
-        padding: 0.75rem 0;
-        font-size: 1rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
         color: var(--white);
         text-align: left;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-radius: 6px;
         transition: all 0.3s;
     }
 
-    header nav a:hover {
-        padding-left: 0.5rem;
+    header nav a:hover,
+    header nav a:focus {
+        background: rgba(255, 255, 255, 0.15);
+        padding-left: 1.5rem;
         color: var(--accent);
     }
 
@@ -726,13 +750,14 @@ footer .social-links a:hover {
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        transition: all 0.3s;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
         background: transparent;
     }
 
     .menu-toggle:hover {
-        background: rgba(63,81,181,0.1);
+        background: rgba(63,81,181,0.12);
         color: var(--primary);
+        transform: scale(1.05);
     }
 
     header.scrolled .menu-toggle {
@@ -740,7 +765,8 @@ footer .social-links a:hover {
     }
 
     header.scrolled .menu-toggle:hover {
-        background: rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.15);
+        color: var(--white);
     }
 
     .logo {
