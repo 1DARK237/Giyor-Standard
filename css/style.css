@@ -1,5 +1,4 @@
 /* Reset & Base Styles */
-/* Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -63,7 +62,7 @@ a {
     align-items: center;
     justify-content: center;
     padding: 12px 32px;
-    background-color: var(--primary);
+    background-color: rgba(63,81,181,0.85); /* slightly transparent for readability */
     color: var(--white);
     border: none;
     border-radius: 50px;
@@ -87,7 +86,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1); /* lower opacity */
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s ease;
@@ -127,6 +126,19 @@ a {
 }
 
 /* Header */
+/* centralized navigation container */
+header nav {
+    width: 70%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background: rgba(255,255,255,0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -174,7 +186,7 @@ header.scrolled .logo {
 }
 
 nav a {
-    margin-left: 2rem;
+    /* remove margin-left; spacing handled by flex gap */
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -497,6 +509,21 @@ footer {
     padding: 2rem;
 }
 
+footer .social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+footer .social-links a {
+    color: var(--white);
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+footer .social-links a:hover {
+    color: var(--accent);
+}
+
 /* Admin Styles */
 .admin-body {
     background-color: var(--bg);
@@ -610,6 +637,7 @@ footer {
         flex-direction: column;
         padding-top: 5rem;
         transition: right 0.3s ease;
+        z-index: 900; /* keep behind header */
     }
 
     nav.open {
@@ -628,6 +656,8 @@ footer {
         cursor: pointer;
         font-size: 1.5rem;
         color: var(--primary);
+        z-index: 1100; /* ensure it's above the sliding nav */
+        position: relative;
     }
 
     header {
