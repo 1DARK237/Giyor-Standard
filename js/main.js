@@ -1,4 +1,4 @@
-import { db } from './firebase-config.js';
+import { db, isFirebaseConfigured } from './firebase-config.js';
 import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 // DOM Elements
@@ -14,10 +14,46 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchTeam();
     setupFilters();
     setupContactForm();
+    initUIInteractions(); // design enhancements
 });
+
+// UI-only enhancements (menu toggle/scroll effects)
+function initUIInteractions() {
+    const header = document.querySelector('header');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+    }
+
+    // smooth scroll for scroll-down arrow
+    const arrow = document.querySelector('.scroll-down');
+    if (arrow) {
+        arrow.addEventListener('click', () => {
+            document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+}
 
 // Fetch Projects from Firestore
 async function fetchProjects() {
+    if (!isFirebaseConfigured) {
+        console.log("Firebase not configured. Loading demo projects...");
+        renderDemoProjects();
+        return;
+    }
+
     try {
         const q = query(collection(db, "projects"), orderBy("timestamp", "desc"));
         const querySnapshot = await getDocs(q);
@@ -81,6 +117,12 @@ function setupFilters() {
 
 // Fetch Team from Firestore
 async function fetchTeam() {
+    if (!isFirebaseConfigured) {
+        console.log("Firebase not configured. Loading demo team...");
+        renderDemoTeam();
+        return;
+    }
+
     try {
         const querySnapshot = await getDocs(collection(db, "team"));
         const team = [];
