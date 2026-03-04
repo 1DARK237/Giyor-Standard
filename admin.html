@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Giyor Standard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -15,7 +16,7 @@
             <form id="login-form">
                 <input type="email" id="login-email" placeholder="Email" required>
                 <input type="password" id="login-password" placeholder="Password" required>
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i>Login</button>
                 <p id="login-error" class="error-msg"></p>
             </form>
             <div class="demo-credentials">
@@ -30,8 +31,8 @@
         <header class="admin-header">
             <h2>Giyor Standard Admin</h2>
             <div class="admin-actions">
-                <a href="/" class="btn btn-outline">View Site</a>
-                <button id="logout-btn" class="btn">Logout</button>
+                <a href="/" class="btn btn-outline"><i class="fas fa-external-link-alt"></i>View Site</a>
+                <button id="logout-btn" class="btn"><i class="fas fa-sign-out-alt"></i>Logout</button>
             </div>
         </header>
 
@@ -41,14 +42,16 @@
                 <h3>Add New Project</h3>
                 <form id="add-project-form" class="admin-form">
                     <input type="text" id="project-title" placeholder="Project Title" required>
+                    <label for="project-category">Category</label>
                     <select id="project-category" required>
                         <option value="" disabled selected>Select Category</option>
                         <option value="Residential">Residential</option>
                         <option value="Commercial">Commercial</option>
                     </select>
                     <textarea id="project-desc" placeholder="Project Description" rows="3" required></textarea>
+                    <label for="project-image">Project Image</label>
                     <input type="file" id="project-image" accept="image/*" required>
-                    <button type="submit" class="btn" id="submit-project-btn">Add Project</button>
+                    <button type="submit" class="btn" id="submit-project-btn"><i class="fas fa-plus-circle"></i>Add Project</button>
                     <p id="project-status" class="status-msg"></p>
                 </form>
 
@@ -65,8 +68,9 @@
                     <input type="text" id="team-name" placeholder="Name" required>
                     <input type="text" id="team-role" placeholder="Role (e.g. Lead Architect)" required>
                     <textarea id="team-bio" placeholder="Short Bio" rows="2" required></textarea>
+                    <label for="team-photo">Photo</label>
                     <input type="file" id="team-photo" accept="image/*" required>
-                    <button type="submit" class="btn" id="submit-team-btn">Add Member</button>
+                    <button type="submit" class="btn" id="submit-team-btn"><i class="fas fa-user-plus"></i>Add Member</button>
                     <p id="team-status" class="status-msg"></p>
                 </form>
 
