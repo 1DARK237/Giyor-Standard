@@ -32,7 +32,7 @@ async function fetchProjects() {
         console.error("Error fetching projects: ", error);
         
         // Fallback demo data if Firebase is not configured
-        if (error.code === 'invalid-argument' || error.message.includes('API key')) {
+        if (error.code === 'invalid-argument' || error.code === 'permission-denied' || error.message.includes('API key') || error.message.includes('YOUR_PROJECT_ID')) {
             renderDemoProjects();
         } else {
             portfolioGrid.innerHTML = `<div class="error-msg">Failed to load projects. Please check Firebase configuration.</div>`;
@@ -92,7 +92,7 @@ async function fetchTeam() {
     } catch (error) {
         console.error("Error fetching team: ", error);
         
-        if (error.code === 'invalid-argument' || error.message.includes('API key')) {
+        if (error.code === 'invalid-argument' || error.code === 'permission-denied' || error.message.includes('API key') || error.message.includes('YOUR_PROJECT_ID')) {
             renderDemoTeam();
         } else {
             teamGrid.innerHTML = `<div class="error-msg">Failed to load team. Please check Firebase configuration.</div>`;
