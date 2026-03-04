@@ -32,8 +32,42 @@ function initUIInteractions() {
     });
 
     if (menuToggle) {
+        // create backdrop overlay for mobile
+        let backdrop = document.querySelector('.nav-backdrop');
+        if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.className = 'nav-backdrop';
+            document.body.appendChild(backdrop);
+        }
+
+        // open menu
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('open');
+            backdrop.classList.toggle('active');
+        });
+
+        // close menu when clicking on any nav link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+                backdrop.classList.remove('active');
+            });
+        });
+
+        // close menu when clicking backdrop (mobile only)
+        backdrop.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                nav.classList.remove('open');
+                backdrop.classList.remove('active');
+            }
+        });
+
+        // close menu on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                nav.classList.remove('open');
+                backdrop.classList.remove('active');
+            }
         });
     }
 
