@@ -11,88 +11,100 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="logo">GIYOR<span>STANDARD</span></div>
-        <!-- mobile hamburger -->
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#team">Team</a>
-            <a href="#contact">Contact</a>
-            <a href="/admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a>
-        </nav>
+        <div class="container header-inner">
+            <div class="logo">GIYOR<span>STANDARD</span></div>
+            <!-- mobile hamburger -->
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+                <a href="/admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a>
+            </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Designing the Future</h1>
-            <p>High-end architectural design, stoneworks, and construction management.</p>
-            <a href="#portfolio" class="btn"><i class="fas fa-project-diagram"></i>View Our Work</a>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Designing the Future</h1>
+                <p>High-end architectural design, stoneworks, and construction management.</p>
+                <a href="#portfolio" class="btn"><i class="fas fa-project-diagram"></i>View Our Work</a>
+            </div>
         </div>
         <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
-        <h2>Our Expertise</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-cubes"></i>
-                <h3>Stoneworks</h3>
-                <p>Premium stone crafting and masonry for timeless structures.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-drafting-compass"></i>
-                <h3>Plan Drawing</h3>
-                <p>Precise and innovative architectural blueprints.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-building"></i>
-                <h3>Architectural Design</h3>
-                <p>Modern and sustainable building designs.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-hard-hat"></i>
-                <h3>Construction Management</h3>
-                <p>Overseeing projects from conception to completion.</p>
+        <div class="container">
+            <h2>Our Expertise</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-cubes"></i>
+                    <h3>Stoneworks</h3>
+                    <p>Premium stone crafting and masonry for timeless structures.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-drafting-compass"></i>
+                    <h3>Plan Drawing</h3>
+                    <p>Precise and innovative architectural blueprints.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Architectural Design</h3>
+                    <p>Modern and sustainable building designs.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hard-hat"></i>
+                    <h3>Construction Management</h3>
+                    <p>Overseeing projects from conception to completion.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
-        <h2>Selected Works</h2>
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> All</button>
-            <button class="filter-btn" data-filter="Residential"><i class="fas fa-home"></i> Residential</button>
-            <button class="filter-btn" data-filter="Commercial"><i class="fas fa-building"></i> Commercial</button>
-        </div>
-        <div class="portfolio-grid" id="portfolio-grid">
-            <!-- Projects will be injected here dynamically -->
-            <div class="loading">Loading projects...</div>
+        <div class="container">
+            <h2>Selected Works</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> All</button>
+                <button class="filter-btn" data-filter="Residential"><i class="fas fa-home"></i> Residential</button>
+                <button class="filter-btn" data-filter="Commercial"><i class="fas fa-building"></i> Commercial</button>
+            </div>
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Projects will be injected here dynamically -->
+                <div class="loading">Loading projects...</div>
+            </div>
         </div>
     </section>
 
     <!-- Team Section -->
     <section id="team" class="team">
-        <h2>Our Team</h2>
-        <div class="team-grid" id="team-grid">
-            <!-- Team members will be injected here dynamically -->
-            <div class="loading">Loading team...</div>
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="team-grid" id="team-grid">
+                <!-- Team members will be injected here dynamically -->
+                <div class="loading">Loading team...</div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2>Get in Touch</h2>
-        <form id="contact-form" class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <form id="contact-form" class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
     </section>
 
     <footer>
