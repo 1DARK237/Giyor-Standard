@@ -160,10 +160,11 @@ header {
     top: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: 1rem 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     z-index: 1000;
     transition: background-color 0.4s, padding 0.4s;
@@ -657,42 +658,93 @@ footer .social-links a:hover {
         grid-template-columns: 1fr;
     }
 
-    /* mobile navigation */
-    nav {
+    /* mobile header layout */
+    header {
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+    }
+
+    .header-inner {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* hide nav in header on mobile */
+    header nav {
         position: fixed;
         top: 0;
         right: -100%;
-        height: 100%;
-        width: 240px;
+        height: 100vh;
+        width: 280px;
+        max-width: 80vw;
         background: var(--primary);
         flex-direction: column;
-        padding-top: 5rem;
+        justify-content: flex-start;
+        padding-top: 6rem;
+        gap: 1rem;
+        border-radius: 0;
+        padding: 6rem 1rem 1rem 1rem;
         transition: right 0.3s ease;
-        z-index: 900; /* keep behind header */
+        z-index: 900;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+        overflow-y: auto;
     }
 
-    nav.open {
+    header nav.open {
         right: 0;
     }
 
-    nav a {
-        margin: 1rem 0;
-        font-size: 1.2rem;
-        color: var(--white);
-        text-align: center;
-    }
-
-    .menu-toggle {
+    header nav a {
         display: block;
-        cursor: pointer;
-        font-size: 1.5rem;
-        color: var(--primary);
-        z-index: 1100; /* ensure it's above the sliding nav */
-        position: relative;
+        padding: 0.75rem 0;
+        font-size: 1rem;
+        color: var(--white);
+        text-align: left;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        transition: all 0.3s;
     }
 
-    header {
-        padding: 1rem 3%;
+    header nav a:hover {
+        padding-left: 0.5rem;
+        color: var(--accent);
+    }
+
+    header nav a::after {
+        display: none;
+    }
+
+    /* hamburger button visible on mobile */
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: var(--primary);
+        z-index: 1100;
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        transition: all 0.3s;
+        background: transparent;
+    }
+
+    .menu-toggle:hover {
+        background: rgba(63,81,181,0.1);
+        color: var(--primary);
+    }
+
+    header.scrolled .menu-toggle {
+        color: var(--white);
+    }
+
+    header.scrolled .menu-toggle:hover {
+        background: rgba(255,255,255,0.1);
+    }
+
+    .logo {
+        font-size: 1.2rem;
     }
 }
 
@@ -779,46 +831,155 @@ footer .social-links a:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 768px) {
+/* ============ RESPONSIVE DESIGN ============ */
+
+/* Mobile (< 768px) */
+@media (max-width: 767.98px) {
     body {
         font-size: 15px;
     }
-    header {
-        flex-direction: column;
-        padding: 1rem;
+
+    .container {
+        padding: 0 1rem;
     }
-    nav {
-        margin-top: 1rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+
+    section {
+        padding: 4rem 1rem;
     }
-    nav a {
-        margin-left: 0;
-        font-size: 0.9rem;
+
+    h1 {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
     }
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
+
     h2 {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .services-grid {
+        gap: 1.5rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .team-grid {
+        gap: 1.5rem;
+    }
+
+    .team-member img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
     }
 }
 
-@media (min-width: 768px) {
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    body {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .services-grid,
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    section {
+        padding: 6rem 3rem;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
     body {
         font-size: 16px;
     }
-    h1 { font-size: 4.5rem; }
-    h2 { font-size: 2.5rem; }
-    section { padding: 8rem 5%; }
-}
 
-@media (min-width: 1024px) {
-    body { font-size: 17px; }
-    h1 { font-size: 5rem; }
-    .services-grid, .team-grid, .portfolio-grid { gap: 3rem; }
+    h1 {
+        font-size: 4.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .services-grid,
+    .team-grid,
+    .portfolio-grid {
+        gap: 2.5rem;
+    }
+
+    section {
+        padding: 8rem 5%;
+    }
+
+    /* hide hamburger menu on desktop */
+    .menu-toggle {
+        display: none !important;
+    }
+
+    /* show nav inline on desktop */
+    header nav {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background: none !important;
+        padding: 0 !important;
+        padding-left: 2rem !important;
+        flex-direction: row !important;
+        justify-content: flex-end !important;
+        right: auto !important;
+        border-radius: 50px !important;
+        background: rgba(255,255,255,0.9) !important;
+        padding: 0.5rem 1rem !important;
+        box-shadow: none !important;
+    }
+
+    header nav a {
+        border-bottom: none !important;
+    }
 }
 
 /* Spinner Animation */
